@@ -18,9 +18,8 @@ setuptools.setup(
     license='MIT',
     packages=setuptools.find_packages(),
     install_requires=[
-        'matplotlib~=3.6.1',
-        'imageio~=2.22.2',
-        'pandas~=1.5.1'
-    ],
-    python_requires=">=3.9",
+        'matplotlib',
+        'imageio',
+        'pandas'
+    ]
 )
