@@ -14,3 +14,15 @@ class TestProjectParser(TestCase):
 
     def test_project_parser_not_json_path(self):
         self.assertRaises(ValueError, ProjectParser, self.NOT_JSON_PATH)
+
+    def test_project_parser_to_dataframe_cache(self):
+        project_parser = ProjectParser(self.JSON_PATH)
+
+        df = project_parser.to_dataframe(cache=True)
+        df2 = project_parser.to_dataframe(cache=True)
+
+        self.assertTrue(df is df2)
+
+        df = project_parser.to_dataframe(cache=False)
+        df2 = project_parser.to_dataframe(cache=False)
+        self.assertFalse(df is df2)

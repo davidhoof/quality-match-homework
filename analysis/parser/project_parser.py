@@ -8,13 +8,13 @@ from analysis.utils.json_utils import get_by_path
 
 
 class ProjectParser:
+    """
+    Project Parser parses a project to different python formats
+    :param file_path Path to the json file
+    :param tasks_path: json path configuration to access the tasks
+    """
 
     def __init__(self, file_path: str, tasks_path=None, task_input_config=None):
-        """
-        Project Parser parses a project to different python formats
-        :param file_path Path to the json file
-        :param tasks_path: json path configuration to access the tasks
-        """
         if tasks_path is not None and type(tasks_path) is not list:
             raise ValueError(f"tasks_path has to be None or list. Got {type(tasks_path)}")
         if tasks_path is None:
@@ -40,7 +40,8 @@ class ProjectParser:
 
     def to_dataframe(self, cache=True) -> pd.DataFrame:
         """
-        Parse to pandas dataframe
+        Parse Project to pandas dataframe
+        :param cache determines if the created dataframe is cached for faster usage
         :return: pandas DataFrame
         """
 

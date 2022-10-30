@@ -18,10 +18,17 @@ class ReferenceParser:
         with open(file_path, "r") as references_file:
             self.__references_dict = json.load(references_file)
 
-    def to_dataframe(self) -> pd.DataFrame:
+        self.__references_dataframe = None
+
+    def to_dataframe(self, cache=True) -> pd.DataFrame:
         """
-        Parse to pandas dataframe
+        Parse references to pandas dataframe
         :return: pandas DataFrame
         """
-        return pd.DataFrame.from_records(self.__references_dict).transpose().reset_index().rename(
-            columns={'index': 'img_name'})
+
+        if self.__references_dataframe is None or cache is False:
+            self.__references_dataframe = pd.DataFrame.from_records(
+                self.__references_dict).transpose().reset_index().rename(
+                columns={'index': 'img_name'})
+
+        return self.__references_dataframe

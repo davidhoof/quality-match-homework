@@ -1,6 +1,10 @@
 from functools import reduce  # forward compatibility for Python 3
 import operator
 
+"""
+Code taken from https://stackoverflow.com/questions/14692690/access-nested-dictionary-items-via-a-list-of-keys
+"""
+
 
 def get_by_path(root, items):
     """Access a nested object in root by item sequence."""
