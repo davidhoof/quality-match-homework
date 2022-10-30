@@ -14,7 +14,7 @@ class InputDisplay:
     def __init__(self, project_parser: ProjectParser):
         self.__project_parser = project_parser
 
-    def plot_images(self, input_ids: list[str], rows: int, cols: int, **kwargs) -> plt.Figure:
+    def plot_images(self, input_ids: list, rows: int, cols: int, **kwargs) -> plt.Figure:
         """
         Method to plot images with the given inputs_ids
         :param input_ids: list of input ids to be plotted
@@ -37,7 +37,7 @@ class InputDisplay:
         fig.show()
         return fig
 
-    def __extract_urls(self, input_ids: list[str]) -> list[str]:
+    def __extract_urls(self, input_ids: list) -> list:
         """
         Helper method to extract image url from the input ids
         :param input_ids: input ids from which the urls have to be extracted
