@@ -6,7 +6,7 @@ from analysis.parser.references_parser import ReferenceParser
 
 
 class TestReferenceParser(TestCase):
-    JSON_PATH = "G:\\Users\\David\\QualityMatch\\anonymized_project.json"
+    JSON_PATH = "G:\\Users\\David\\QualityMatch\\references.json"
     NOT_JSON_PATH = "G:\\Users\\David\\QualityMatch\\[EXT] Homework - (bicycle project crowd evaluation).pdf"
 
     def test_reference_parser_json_path(self):
@@ -18,6 +18,7 @@ class TestReferenceParser(TestCase):
     def test_reference_parser_to_dataframe(self):
         reference_parser = ReferenceParser(self.JSON_PATH)
         df = reference_parser.to_dataframe()
+        print(df)
         self.assertEqual(type(df), pd.DataFrame)
 
     def test_reference_parser_to_dataframe_cache(self):
